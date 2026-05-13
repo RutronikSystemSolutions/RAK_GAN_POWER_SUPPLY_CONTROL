@@ -9,23 +9,23 @@
 void GT911_INT_Input(void)
 {
 	/* Change the drive mode of P9.2 to Digital (hi-z, input buffer off) */
-    Cy_GPIO_SetDrivemode(ARD_IO5_PORT, ARD_IO5_NUM, CY_GPIO_DM_HIGHZ);
+    Cy_GPIO_SetDrivemode(ARD_IO3_PORT, ARD_IO3_NUM, CY_GPIO_DM_HIGHZ);
 }
 
 void GT911_INT_Output(void)
 {
 	/* Change the drive mode of P9.2 to Digital (strong drive, input buffer off) */
-    Cy_GPIO_SetDrivemode(ARD_IO5_PORT, ARD_IO5_NUM, CY_GPIO_DM_STRONG_IN_OFF);
+    Cy_GPIO_SetDrivemode(ARD_IO3_PORT, ARD_IO3_NUM, CY_GPIO_DM_STRONG_IN_OFF);
 }
 
 void GT911_INT_Control(bool high_or_low)
 {
-	Cy_GPIO_Write(ARD_IO5_PORT, ARD_IO5_NUM, high_or_low);
+	Cy_GPIO_Write(ARD_IO3_PORT, ARD_IO3_NUM, high_or_low);
 }
 
 void GT911_RST_Control(bool high_or_low)
 {
-	Cy_GPIO_Write(ARD_IO6_PORT, ARD_IO6_NUM, high_or_low);
+	Cy_GPIO_Write(ARD_IO4_PORT, ARD_IO4_NUM, high_or_low);
 }
 
 void GT911_Delay(uint16_t ms)

@@ -1,11 +1,15 @@
 /*******************************************************************************
 * File Name:   main.c
 *
-* Description: This is the source code for Hello World Example using PDL APIs
-*              for ModusToolbox.
+* Description: This is the source code for the RAK-GAN Power Supply Control 
+*             Application for ModusToolbox.
 *
 * Related Document: See README.md
 *
+* Created on: 2026-05-06
+* Company: Rutronik Elektronische Bauelemente GmbH
+* Address: Jonavos g. 30, Kaunas 44262, Lithuania
+* Author: GDR
 *
 *******************************************************************************
 * Copyright 2024, Cypress Semiconductor Corporation (an Infineon company) or
@@ -38,6 +42,13 @@
 * including Cypress's product in a High Risk Product, the manufacturer
 * of such system or application assumes all risk of such use and in doing
 * so agrees to indemnify Cypress against all liability.
+*
+* Rutronik Elektronische Bauelemente GmbH Disclaimer: The evaluation board
+* including the software is for testing purposes only and,
+* because it has limited functions and limited resilience, is not suitable
+* for permanent use under real conditions. If the evaluation board is
+* nevertheless used under real conditions, this is done at one’s responsibility;
+* any liability of Rutronik is insofar excluded
 *******************************************************************************/
 
 
@@ -92,8 +103,8 @@ bool buck_enable = false;
 enum supply_mode supp_mode = CV;
 
 /* For the Retarget -IO (Debug UART) usage */
-static cy_stc_scb_uart_context_t    ARD_UART_context;           /** UART context */
-static mtb_hal_uart_t               ARD_UART_hal_obj;
+static cy_stc_scb_uart_context_t    DEBUG_UART_context;           /** UART context */
+static mtb_hal_uart_t               DEBUG_UART_hal_obj;
 
 GT911_Config_t gt911_config =
 {
@@ -343,7 +354,7 @@ int main(void)
 	hw_init();
 
     /* Configure retarget-io to use the debug UART port */
-    result = (cy_rslt_t)Cy_SCB_UART_Init(ARD_UART_HW, &ARD_UART_config, &ARD_UART_context);
+    result = (cy_rslt_t)Cy_SCB_UART_Init(DEBUG_UART_HW, &DEBUG_UART_config, &DEBUG_UART_context);
 
     /* UART init failed. Stop program execution */
     if (result != CY_RSLT_SUCCESS)
@@ -351,10 +362,10 @@ int main(void)
         CY_ASSERT(0);
     }
 
-    Cy_SCB_UART_Enable(ARD_UART_HW);
+    Cy_SCB_UART_Enable(DEBUG_UART_HW);
 
     /* Setup the HAL UART */
-    result = mtb_hal_uart_setup(&ARD_UART_hal_obj, &ARD_UART_hal_config, &ARD_UART_context, NULL);
+    result = mtb_hal_uart_setup(&DEBUG_UART_hal_obj, &DEBUG_UART_hal_config, &DEBUG_UART_context, NULL);
 
     /* HAL UART init failed. Stop program execution */
     if (result != CY_RSLT_SUCCESS)
@@ -362,7 +373,7 @@ int main(void)
         CY_ASSERT(0);
     }
 
-    result = cy_retarget_io_init(&ARD_UART_hal_obj);
+    result = cy_retarget_io_init(&DEBUG_UART_hal_obj);
 
     /* \x1b[2J\x1b[;H - ANSI ESC sequence for clear screen */
     printf("\x1b[2J\x1b[;H");
