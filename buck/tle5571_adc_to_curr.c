@@ -14,7 +14,7 @@ float tle5571_adc_to_current(uint16_t adc_reading)
 {
 	float approx_current = 0;
 	
-	approx_current = (float)(adc_reading - 3009.6)/42.573;
+	approx_current = (float)(adc_reading - 1991.6)/28.53;
 	approx_current = approx_current - DCIN_I_OFFSET;
 	if( approx_current  < 0 ) { approx_current = 0; }
 	

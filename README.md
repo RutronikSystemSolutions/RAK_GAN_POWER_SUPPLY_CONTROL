@@ -7,9 +7,9 @@ The DC Power Supply application features adjustable voltage and current outputs,
 ## Requirements
 
 - [ModusToolbox® software](https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/) v3.8 or later (tested with v3.8)
-- The EEZ-Studio for GUI creation
-- The latest hardware release: RAK-GAN Rev. 1.
-- REP012864Q-CTP screen from RAYSTAR.
+- The [EEZ-Studio](https://github.com/eez-open/studio) for GUI creation
+- The latest hardware release: [RAK-GAN Rev. 1](https://github.com/RutronikSystemSolutions/RAK_GAN_Hardware_Files).
+- [REP012864Q-CTP](https://www.raystar-optronics.com/oled-touch-display/2.7-cog-fr-pcb-tp.html) screen from RAYSTAR.
 - DC Power Supply.
 - At least 2.5 mm2 (14 AWG) Power Cables.
 

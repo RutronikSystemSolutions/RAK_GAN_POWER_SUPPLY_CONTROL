@@ -778,7 +778,7 @@
                     <Block location="peri[0].group[4].div_8[0]" locked="true"/>
                     <Parameters>
                         <Param id="fracDivider" value="0"/>
-                        <Param id="intDivider" value="8"/>
+                        <Param id="intDivider" value="32"/>
                         <Param id="startOnReset" value="true"/>
                     </Parameters>
                 </Personality>
@@ -787,6 +787,22 @@
                     <Parameters>
                         <Param id="fracDivider" value="0"/>
                         <Param id="intDivider" value="104"/>
+                        <Param id="startOnReset" value="true"/>
+                    </Parameters>
+                </Personality>
+                <Personality template="pclk_v2" version="1.0" instance="QQBZE7VSFtU">
+                    <Block location="peri[0].group[4].div_16[0]" locked="true"/>
+                    <Parameters>
+                        <Param id="fracDivider" value="0"/>
+                        <Param id="intDivider" value="30"/>
+                        <Param id="startOnReset" value="true"/>
+                    </Parameters>
+                </Personality>
+                <Personality template="pclk_v2" version="1.0" instance="uzaUmlpUk2U">
+                    <Block location="peri[0].group[4].div_16_5[0]" locked="true"/>
+                    <Parameters>
+                        <Param id="fracDivider" value="0"/>
+                        <Param id="intDivider" value="30"/>
                         <Param id="startOnReset" value="true"/>
                     </Parameters>
                 </Personality>
@@ -863,7 +879,7 @@
                         <Param id="ManualDigitalFilter" value="true"/>
                         <Param id="ManualHighPhaseDutyCycle" value="9"/>
                         <Param id="ManualLowPhaseDutyCycle" value="16"/>
-                        <Param id="ModeUser" value="CY_SCB_I2C_SLAVE"/>
+                        <Param id="ModeUser" value="CY_SCB_I2C_MASTER"/>
                         <Param id="SlaveAddress" value="8"/>
                         <Param id="SlaveAddressMask" value="254"/>
                         <Param id="inFlash" value="true"/>
