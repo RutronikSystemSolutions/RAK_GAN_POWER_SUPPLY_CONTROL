@@ -62,6 +62,10 @@ The additional parameters can be observed on the properties screen:
 
 <img src="images/properties_screen.jpg" style="zoom:100%;" />
 
+### Wiring Diagram
+
+<img src="images/wiring_diagram.jpg" style="zoom:65%;" />
+
 ### Debugging
 
 If you have successfully imported the example, the debug configurations are already prepared to use with the JLink. Open the ModusToolbox™ perspective and find the Quick Panel. Click the desired debug launch configuration, then wait for programming to complete and debugging to start.
